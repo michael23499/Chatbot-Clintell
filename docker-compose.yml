@@ -1,0 +1,37 @@
+version: '3'
+services:
+  db:
+    image: postgres:14-alpine
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: chatbot_db
+      POSTGRES_USER: chatbot_user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./data/db:/var/lib/postgresql/data/
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./frontend:/app/frontend
+    depends_on:
+      - backend
+  backend: 
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_USER: 'chatbot_user'
+      POSTGRES_DB: 'chatbot_db'    
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./backend:/app/backend
+    depends_on:
+      - db
