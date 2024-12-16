@@ -16,7 +16,7 @@ Este es el backend del proyecto, construido con Django y Django REST Framework. 
 
 1. **Clonar el repositorio:**
     ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
+   git clone https://github.com/michael23499/chatbot-clintell.git
    cd chatbotclintell/backend
 
 python -m venv venv
@@ -83,7 +83,7 @@ Para instalar y ejecutar el proyecto, sigue estos pasos:
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
+   git clone https://github.com/michael23499/chatbot-clintell.git
 
 2. Navega al directorio del frontend:
    cd chatbotclintell/frontend
